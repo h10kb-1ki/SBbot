@@ -1,0 +1,27 @@
+name: Send LINE Message
+
+on:
+  schedule:
+    - cron: "0 22 * * *"  # 毎日7時 (JST) に実行 (UTC 22時 = JST 7時)
+  workflow_dispatch:  # 手動実行も可能にする
+
+jobs:
+  send-message:
+    runs-on: ubuntu-latest
+    steps:
+      - name: リポジトリをチェックアウト
+        uses: actions/checkout@v4
+
+      - name: Python セットアップ
+        uses: actions/setup-python@v4
+        with:
+          python-version: "3.10"
+
+      - name: 依存関係をインストール
+        run: pip install -r requirements.txt
+
+      - name: LINE メッセージを送信
+        env:
+          LINE_ACCESS_TOKEN: ${{ secrets.LINE_ACCESS_TOKEN }}
+          LINE_USER_ID: ${{ secrets.LINE_USER_ID }}
+        run: python main.py
