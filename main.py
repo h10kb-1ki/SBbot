@@ -3,7 +3,7 @@ import os
 import random
 
 ACCESS_TOKEN = os.getenv("LINE_ACCESS_TOKEN")  # GitHub Secrets から取得
-USER_ID = os.getenv("U4c1ebc83ae32482ea9bf5c81759c7d0b")  # 送信先ユーザーID
+USER_ID = os.getenv("LINE_USER_ID")  # 送信先ユーザーID
 
 def select_message():
     sb = [
