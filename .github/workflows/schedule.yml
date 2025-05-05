@@ -2,7 +2,7 @@ name: Send LINE Message
 
 on:
   schedule:
-    - cron: "0 22 * * *"  # 毎日7時 (JST) に実行 (UTC 22時 = JST 7時)
+    - cron: '30 22 * * 0-4'  # 日本時間で月-金の7:30に実行（9時間の時差がある）
   workflow_dispatch:  # 手動実行も可能にする
 
 jobs:
