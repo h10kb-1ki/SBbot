@@ -3,7 +3,7 @@ name: Send LINE Message
 on:
   schedule:
     - cron: '30 22 * * 0-4'  # 日本時間で月-金の7:30に実行（9時間の時差がある）
-  workflow_dispatch:  # 手動実行も可能にする
+  workflow_dispatch:  # 手動実行も可能に
 
 jobs:
   send-message:
